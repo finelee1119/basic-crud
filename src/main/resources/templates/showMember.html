@@ -28,7 +28,11 @@
                 </form>
             </td>
             <td>
-                <form th:action="@{/member/delete}" method="post">
+                <!--   path variable로 전달해서 삭제 처리   -->
+                <form th:action="@{/member/delete/{deleteId}(deleteId=${member.id})}" method="post">
+<!--                <form th:action="@{/member/delete}" method="post">-->
+                    <!--     쿼리 파라미터를 사용해서 삭제 처리    -->
+                    <input type="hidden" name="deleteId" th:value="${member.id}">
                     <input type="submit" value="삭제">
                 </form>
             </td>
@@ -37,6 +41,17 @@
     <br>
     <form th:action="@{/member/insertForm}" method="get">
         <input type="submit" value="신규회원입력">
+    </form>
+
+<!--검색 기능 달기-->
+    <form th:action="@{/member/search}" method="get">
+        <select name="type">
+            <option selected value="">검색 내용 선택</option>
+            <option value="name">이름</option>
+            <option value="addr">주소</option>
+        </select>
+        <input type="text" name="keyword" value="" placeholder="검색어를 입력하세요">
+        <input type="submit" value="검색">
     </form>
 </body>
 </html>

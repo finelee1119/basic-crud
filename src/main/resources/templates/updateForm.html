@@ -12,14 +12,17 @@
         <div>
             <label for="name">이름</label>
             <input type="text" name="name" th:field="*{name}">
+            <span th:errors="*{name}"></span>
         </div>
         <div>
             <label for="age">나이</label>
             <input type="text" name="age" th:field="*{age}">
+            <span th:errors="*{age}"></span>
         </div>
         <div>
             <label for="addr">주소</label>
             <input type="text" name="addr" th:field="*{addr}">
+            <span th:errors="*{addr}"></span>
         </div>
         <input type="hidden" th:field="*{id}">
         <input type="submit" value="수정">
