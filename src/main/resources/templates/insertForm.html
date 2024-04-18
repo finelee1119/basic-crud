@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>입력화면</title>
+</head>
+<body>
+    <form th:action="@{/member/insert}" method="post">
+        <div>
+            <label for="name">이름</label>
+            <input type="text" name="name" th:field="${memberDto.name}">
+        </div>
+        <div>
+            <label for="age">나이</label>
+            <input type="text" name="age" th:field="${memberDto.age}">
+        </div>
+        <div>
+            <label for="addr">주소</label>
+            <input type="text" name="addr" th:field="${memberDto.addr}">
+        </div>
+        <input type="submit" value="등록">
+    </form>
+    <br>
+    <a th:href="@{/member/show}">메인화면으로 돌아가기</a>
+</body>
+</html>
